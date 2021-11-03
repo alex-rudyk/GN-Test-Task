@@ -1,15 +1,15 @@
-const { doSomeLogic } = require("../services/appGN");
+const { calculatingStringByNumber } = require("../services/appGN");
 
 exports.appGNCtr = async (req, res) => {
 	const number = parseInt(req.params.number);
 
-	// Check our params.
+	// Check input params.
 	if (!number || typeof number !== 'number') {
 		res.status(400).json({ message: 'Param must be a number' })
 		return;
 	}
 	
-	const output = doSomeLogic(number);
+	const output = calculatingStringByNumber(number);
 
 	res.status(200).json({ output });
 }

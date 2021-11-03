@@ -1,5 +1,5 @@
 
-exports.doSomeLogic = (number) => {
+exports.calculatingStringByNumber = (number) => {
 	let output = '';
 
 	// If the number is a multiple of 3, add 'G' to the output string
