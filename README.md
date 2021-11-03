@@ -1,4 +1,4 @@
-# GNetvork test task
+# GNetwork test task
 
 To run this program, call the following command in the terminal:
 ```npm run start```
