@@ -1,7 +1,10 @@
 # GNetwork test task
 
 To run this program, call the following command in the terminal:
-```npm run start```
+```bash
+npm i
+npm run start
+```
 
 ## Check the operation of the application:
 
