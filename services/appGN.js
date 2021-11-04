@@ -1,3 +1,4 @@
+const { HttpException, HttpStatus } = require("../utils/httpException");
 
 exports.calculatingStringByNumber = (number) => {
 	let output = '';
@@ -15,4 +16,11 @@ exports.calculatingStringByNumber = (number) => {
 		output = number.toString();
 
 	return output;
+}
+
+exports.validateInputValue = (value) => {
+	if (!value || typeof value !== 'number')
+		throw new HttpException('Param must be a number', HttpStatus.BAD_REQUEST);
+
+	return true;
 }

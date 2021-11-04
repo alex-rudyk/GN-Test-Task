@@ -1,5 +1,6 @@
 const express = require('express');
 const config = require('./config');
+const { errorHandler } = require('./middlewares/errorHandler');
 const routes = require('./routes');
 
 function createExpressApp() {
@@ -7,6 +8,7 @@ function createExpressApp() {
 
 	app.use(express.json());
 	app.use(routes);
+	app.use(errorHandler);
 
 	return app;
 }

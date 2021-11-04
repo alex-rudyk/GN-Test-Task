@@ -1,15 +1,16 @@
-const { calculatingStringByNumber } = require("../services/appGN");
+const { calculatingStringByNumber, validateInputValue } = require("../services/appGN");
+const { HttpStatus } = require("../utils/httpException");
 
-exports.appGNCtr = async (req, res) => {
-	const number = parseInt(req.params.number);
+exports.appGNCtr = async (req, res, next) => {
+	try {
+		const number = parseInt(req.params.number);
 
-	// Check input params.
-	if (!number || typeof number !== 'number') {
-		res.status(400).json({ message: 'Param must be a number' })
-		return;
-	}
-	
-	const output = calculatingStringByNumber(number);
+		validateInputValue(number);
 
-	res.status(200).json({ output });
+		const output = calculatingStringByNumber(number);
+
+		res.status(HttpStatus.OK).json({ output });
+	} catch(error) {
+		next(error);
+	}	
 }

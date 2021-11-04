@@ -1,4 +1,5 @@
-const { calculatingStringByNumber } = require("../services/appGN");
+const { calculatingStringByNumber, validateInputValue } = require("../services/appGN");
+const { HttpException, HttpStatus } = require("../utils/httpException");
 
 describe('Calculating String By Number', () => {
 	it('If the integer is a multiple of 3, it should return "G"', () => {
@@ -31,5 +32,25 @@ describe('Calculating String By Number', () => {
 		const output = calculatingStringByNumber(number);
 
 		expect(output).toEqual(`${number}`);
+	});
+});
+
+describe('Input value validator', () => {
+	it('Passing correct data to validate function', () => {
+		const input = 5;
+
+		const result = validateInputValue(input);
+
+		expect(result).toEqual(true);
+	});
+
+	it('Passing string value to validate function', () => {
+		const input = '5';
+
+		const fn = () => {
+			validateInputValue(input);
+		}
+
+		expect(fn).toThrowError(new HttpException('Param must be a number', HttpStatus.BAD_REQUEST));
 	});
 });
