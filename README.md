@@ -6,6 +6,15 @@ npm i
 npm run start
 ```
 
+## Run tests
+
+To run tests, call the following commands in the terminal:
+
+```bash
+npm i
+npm run test
+```
+
 ## Check the operation of the application:
 
 1) Go to `localhost:8080/{your_number}`
